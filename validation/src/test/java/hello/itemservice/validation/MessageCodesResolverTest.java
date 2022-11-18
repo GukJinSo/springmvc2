@@ -29,5 +29,8 @@ public class MessageCodesResolverTest {
         BindingResult bindingResult = new BeanPropertyBindingResult(new Item("김치찜", Integer.valueOf(50000), Integer.valueOf(6000)), "item");
         bindingResult.addError(new FieldError("item", "price", new Object[]{"스트링으로가격들어옴"}
                 , true, new String[]{"required.item.price", "required"}, null, null));
+
+        bindingResult.rejectValue("price", "required");
+        System.out.println("bindingResult = " + bindingResult);
     }
 }
