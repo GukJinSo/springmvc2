@@ -1,5 +1,6 @@
 package hello.exception.api;
 
+import hello.exception.exception.BadRequestException;
 import hello.exception.exception.UserException;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,7 +32,12 @@ public class ApiExceptionController {
             throw new UserException("잘못된 유저");
         }
 
-
         return new MemberDto(id,"hello");
     }
+
+    @GetMapping("/api/response-status-ex1")
+    public String getMember() {
+        throw new BadRequestException();
+    }
+
 }
